@@ -1,16 +1,49 @@
-# chat_flutter
+# Chat Flutter
 
-A new Flutter project.
+> Desafio Potencializando o seu App Flutter com Cloud Firestore da DIO
 
-## Getting Started
+## Checklist do Desafio
 
-This project is a starting point for a Flutter application.
+- Criar uma aplicação Flutter​
+- Criar banco de dados no Firestore​
+- Criar uma tela de escolha de salas​
+- Criar chat separado por salas​
+- Usuário informará o nome​
+- Incluir recursos a escolha do(a) aluno(a)
 
-A few resources to get you started if this is your first Flutter project:
+## Tecnologias
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Dart
+- Flutter
+- Firebase
+- Firebase Firestore (NoSQL real time database)
+- Firebase Remote config
+- Firebase Crashlytics
+- Firebase Analytics
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Bibliotecas adicionais
+
+- firebase_core
+- cloud_firestore
+- firebase_remote_config
+- firebase_crashlytics
+- firebase_analytics
+
+## Galeria de Imagens do projeto
+
+<img src="https://raw.githubusercontent.com/rodolfoHOk/portfolio-img/main/images/dio-chat-flutter-01.png" alt="Chat Flutter Image 01" width="225"/>
+<img src="https://raw.githubusercontent.com/rodolfoHOk/portfolio-img/main/images/dio-chat-flutter-02.png" alt="Chat Flutter Image 02" width="225"/>
+
+## Rodar
+
+### Requisitos
+
+- Flutter instalado
+- Android Studio
+- Android SDK command line tools
+- Clonar este repositório
+
+### Executar
+
+- Abrir um dispositivo emulado Android
+- Terminal na raiz do projeto: flutter run
