@@ -24,7 +24,7 @@ class MainApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: const MainPage(title: 'Chat Flutter: Salas'),
+      home: const MainPage(title: 'Chat Flutter App: Salas'),
     );
   }
 }
