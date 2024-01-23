@@ -1,7 +1,10 @@
+import 'package:chat_flutter/models/chat_model.dart';
 import 'package:flutter/material.dart';
 
 class ChatItem extends StatelessWidget {
-  const ChatItem({super.key});
+  final ChatModel chatModel;
+
+  const ChatItem({super.key, required this.chatModel});
 
   @override
   Widget build(BuildContext context) {
@@ -15,9 +18,21 @@ class ChatItem extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text(
-                "Chat name",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    chatModel.name,
+                    style: const TextStyle(
+                        fontSize: 18, fontWeight: FontWeight.w600),
+                  ),
+                  Text(
+                    chatModel.category,
+                    style: const TextStyle(
+                        fontSize: 12, fontWeight: FontWeight.w400),
+                  ),
+                ],
               ),
               FilledButton(
                 onPressed: () {},
