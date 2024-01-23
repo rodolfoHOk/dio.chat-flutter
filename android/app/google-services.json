@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "992412731074",
+    "project_id": "hiokdev-chat-flutter",
+    "storage_bucket": "hiokdev-chat-flutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:992412731074:android:2e36c3e890b82ca54a1d5b",
+        "android_client_info": {
+          "package_name": "br.com.hioktec.flutter.chat.chat_flutter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1tWZcKJb3anAoh2EOCFiwFIdPXDHjfPw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
