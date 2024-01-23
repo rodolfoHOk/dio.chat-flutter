@@ -18,19 +18,28 @@ class ChatItem extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
+              Row(
                 children: [
-                  Text(
-                    chatModel.name,
-                    style: const TextStyle(
-                        fontSize: 18, fontWeight: FontWeight.w600),
+                  const Icon(
+                    Icons.chat,
+                    color: Colors.teal,
                   ),
-                  Text(
-                    chatModel.category,
-                    style: const TextStyle(
-                        fontSize: 12, fontWeight: FontWeight.w400),
+                  const SizedBox(width: 12),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        chatModel.name,
+                        style: const TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.w600),
+                      ),
+                      Text(
+                        chatModel.category,
+                        style: const TextStyle(
+                            fontSize: 12, fontWeight: FontWeight.w400),
+                      ),
+                    ],
                   ),
                 ],
               ),
