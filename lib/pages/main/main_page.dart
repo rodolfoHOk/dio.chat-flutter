@@ -1,3 +1,4 @@
+import 'package:chat_flutter/shared/widgets/chat_item.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatefulWidget {
@@ -18,20 +19,13 @@ class _MainPageState extends State<MainPage> {
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
           title: Text(widget.title),
         ),
-        body: const Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+        body: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
+          child: const Column(
             children: <Widget>[
-              Text(
-                'To do',
-              ),
+              ChatItem(),
             ],
           ),
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          tooltip: 'Adicionar',
-          child: const Icon(Icons.add),
         ),
       ),
     );
