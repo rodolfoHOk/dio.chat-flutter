@@ -1,4 +1,5 @@
 import 'package:chat_flutter/models/chat_model.dart';
+import 'package:chat_flutter/pages/chat/chat_page.dart';
 import 'package:flutter/material.dart';
 
 class ChatItem extends StatelessWidget {
@@ -44,7 +45,14 @@ class ChatItem extends StatelessWidget {
                 ],
               ),
               FilledButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (builder) => ChatPage(chatModel: chatModel),
+                    ),
+                  );
+                },
                 style: FilledButton.styleFrom(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(4),
