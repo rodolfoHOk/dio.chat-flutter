@@ -3,6 +3,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ChatModel {
+  String? _id;
   String _name = "";
   String _category = "";
   DateTime _createdAt = DateTime.now();
@@ -12,6 +13,8 @@ class ChatModel {
     _category = category;
   }
 
+  String? get id => _id;
+  set id(String? id) => _id = id;
   String get name => _name;
   set name(String name) => _name = name;
   String get category => _category;
