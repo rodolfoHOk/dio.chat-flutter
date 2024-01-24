@@ -1,5 +1,5 @@
 import 'package:chat_flutter/models/chat_model.dart';
-import 'package:chat_flutter/pages/chat/chat_page.dart';
+import 'package:chat_flutter/shared/widgets/enter_chat_modal.dart';
 import 'package:flutter/material.dart';
 
 class ChatItem extends StatelessWidget {
@@ -46,11 +46,9 @@ class ChatItem extends StatelessWidget {
               ),
               FilledButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (builder) => ChatPage(chatModel: chatModel),
-                    ),
+                  showDialog(
+                    context: context,
+                    builder: (builder) => EnterChatModal(chatModel: chatModel),
                   );
                 },
                 style: FilledButton.styleFrom(
