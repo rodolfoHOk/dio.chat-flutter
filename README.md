@@ -28,6 +28,7 @@
 - firebase_remote_config
 - firebase_crashlytics
 - firebase_analytics
+- intl
 
 ## Galeria de Imagens do projeto
 
