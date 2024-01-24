@@ -1,3 +1,4 @@
+import 'package:chat_flutter/shared/widgets/custom_form_field.dart';
 import 'package:flutter/material.dart';
 
 class AddRoomModal extends StatelessWidget {
@@ -10,19 +11,17 @@ class AddRoomModal extends StatelessWidget {
 
     return AlertDialog(
       title: const Text("Adicionar sala"),
-      content: Wrap(
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
-          TextFormField(
+          CustomFormField(
+            label: "Nome",
             controller: nameController,
-            decoration: const InputDecoration(
-              labelText: "Nome:",
-            ),
           ),
-          TextFormField(
+          const SizedBox(height: 12),
+          CustomFormField(
             controller: categoryController,
-            decoration: const InputDecoration(
-              labelText: "Categoria:",
-            ),
+            label: "Categoria",
           ),
         ],
       ),

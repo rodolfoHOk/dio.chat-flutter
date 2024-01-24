@@ -1,5 +1,6 @@
 import 'package:chat_flutter/models/chat_model.dart';
 import 'package:chat_flutter/pages/chat/chat_page.dart';
+import 'package:chat_flutter/shared/widgets/custom_form_field.dart';
 import 'package:flutter/material.dart';
 
 class EnterChatModal extends StatelessWidget {
@@ -16,18 +17,8 @@ class EnterChatModal extends StatelessWidget {
         "Entrar na sala: ${chatModel.name}",
         style: const TextStyle(fontSize: 18),
       ),
-      content: TextFormField(
-        decoration: InputDecoration(
-          labelText: "Digite o nome ou apelido",
-          enabledBorder: OutlineInputBorder(
-            borderSide:
-                BorderSide(color: Theme.of(context).colorScheme.primary),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderSide:
-                BorderSide(color: Theme.of(context).colorScheme.primary),
-          ),
-        ),
+      content: CustomFormField(
+        label: "Digite o nome ou apelido",
         controller: nicknameController,
       ),
       actions: [
