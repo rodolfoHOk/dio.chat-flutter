@@ -15,7 +15,7 @@ class FirebaseChatService implements ChatService {
 
   @override
   Future<List<ChatModel>> list() async {
-    var snapshot = await _db.collection("chats").get();
+    var snapshot = await _db.collection("chats").orderBy("created_at").get();
     return snapshot.docs.map((doc) {
       var chat = ChatModel.fromJson(doc.data());
       chat.id = doc.id;
