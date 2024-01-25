@@ -1,7 +1,10 @@
+import 'package:flutter/material.dart';
+import 'package:chat_flutter/main.dart';
 import 'package:chat_flutter/models/chat_model.dart';
+import 'package:chat_flutter/services/chat_service.dart';
+import 'package:chat_flutter/services/impl/firebase_chat_service.dart';
 import 'package:chat_flutter/shared/widgets/add_room_modal.dart';
 import 'package:chat_flutter/shared/widgets/chat_item.dart';
-import 'package:flutter/material.dart';
 
 class MainPage extends StatefulWidget {
   final String title;
@@ -13,7 +16,7 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  List<ChatModel> chats = <ChatModel>[];
+  late FirebaseChatService chatService;
 
   @override
   void initState() {
@@ -22,15 +25,7 @@ class _MainPageState extends State<MainPage> {
   }
 
   void loadData() async {
-    ChatModel chat1 = ChatModel(
-      name: "Sala 1 teste",
-      category: "Categoria 1 teste",
-    );
-    ChatModel chat2 = ChatModel(
-      name: "Sala 2 teste",
-      category: "Categoria 2 teste",
-    );
-    chats.addAll([chat1, chat2]);
+    chatService = getIt.get<ChatService>() as FirebaseChatService;
     setState(() {});
   }
 
@@ -48,10 +43,16 @@ class _MainPageState extends State<MainPage> {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Expanded(
-                child: ListView.builder(
-                  itemCount: chats.length,
-                  itemBuilder: (builder, index) {
-                    return ChatItem(chatModel: chats[index]);
+                child: StreamBuilder<List<ChatModel>>(
+                  stream: chatService.streamChats(),
+                  builder: (context, snapshot) {
+                    return snapshot.hasData
+                        ? ListView(
+                            children: snapshot.data!
+                                .map((chat) => ChatItem(chatModel: chat))
+                                .toList(),
+                          )
+                        : const CircularProgressIndicator();
                   },
                 ),
               ),
