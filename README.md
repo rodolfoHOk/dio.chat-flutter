@@ -29,6 +29,7 @@
 - firebase_crashlytics
 - firebase_analytics
 - intl
+- get_it
 
 ## Galeria de Imagens do projeto
 
