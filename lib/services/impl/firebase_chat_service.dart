@@ -22,4 +22,11 @@ class FirebaseChatService implements ChatService {
       return chat;
     }).toList();
   }
+
+  @override
+  Stream<List<ChatModel>> streamChats() {
+    return _db.collection("chats").orderBy("created_at").snapshots().map(
+        (snap) =>
+            snap.docs.map((doc) => ChatModel.fromJson(doc.data())).toList());
+  }
 }
