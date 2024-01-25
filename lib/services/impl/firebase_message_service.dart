@@ -25,4 +25,15 @@ class FirebaseMessageService implements MessageService {
       return message;
     }).toList();
   }
+
+  @override
+  Stream<List<MessageModel>> streamMessagesByChatId(String chatId) {
+    return _db
+        .collection("messages")
+        .where("chatId", isEqualTo: chatId)
+        .orderBy("created_at")
+        .snapshots()
+        .map((snap) =>
+            snap.docs.map((doc) => MessageModel.fromJson(doc.data())).toList());
+  }
 }

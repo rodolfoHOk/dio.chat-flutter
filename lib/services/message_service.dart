@@ -4,4 +4,6 @@ abstract class MessageService {
   Future<void> create(MessageModel messageModel);
 
   Future<List<MessageModel>> listByChatId(String chatId);
+
+  Stream<List<MessageModel>> streamMessagesByChatId(String chatId);
 }
