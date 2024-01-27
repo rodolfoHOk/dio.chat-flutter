@@ -38,6 +38,17 @@
 <img src="https://raw.githubusercontent.com/rodolfoHOk/portfolio-img/main/images/dio-chat-flutter-01.png" alt="Chat Flutter Image 01" width="225"/>
 <img src="https://raw.githubusercontent.com/rodolfoHOk/portfolio-img/main/images/dio-chat-flutter-02.png" alt="Chat Flutter Image 02" width="225"/>
 
+<img src="https://raw.githubusercontent.com/rodolfoHOk/portfolio-img/main/images/dio-chat-flutter-03.png" alt="Chat Flutter Image 03" width="225"/>
+<img src="https://raw.githubusercontent.com/rodolfoHOk/portfolio-img/main/images/dio-chat-flutter-04.png" alt="Chat Flutter Image 04" width="225"/>
+
+<img src="https://raw.githubusercontent.com/rodolfoHOk/portfolio-img/main/images/dio-chat-flutter-05.png" alt="Chat Flutter Image 05" width="225"/>
+<img src="https://raw.githubusercontent.com/rodolfoHOk/portfolio-img/main/images/dio-chat-flutter-06.png" alt="Chat Flutter Image 06" width="225"/>
+
+<img src="https://raw.githubusercontent.com/rodolfoHOk/portfolio-img/main/images/dio-chat-flutter-07.png" alt="Chat Flutter Image 07" width="225"/>
+<img src="https://raw.githubusercontent.com/rodolfoHOk/portfolio-img/main/images/dio-chat-flutter-08.png" alt="Chat Flutter Image 08" width="225"/>
+
+<img src="https://raw.githubusercontent.com/rodolfoHOk/portfolio-img/main/images/dio-chat-flutter-09.png" alt="Chat Flutter Image 09" width="225"/>
+
 ## Rodar
 
 ### Requisitos
