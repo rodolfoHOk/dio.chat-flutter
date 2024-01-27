@@ -37,6 +37,7 @@ class EnterChatModal extends StatelessWidget {
           ),
           onPressed: () {
             if (nicknameController.text.trim().length > 3) {
+              Navigator.pop(context);
               Navigator.push(
                 context,
                 MaterialPageRoute(
