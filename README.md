@@ -30,6 +30,8 @@
 - firebase_analytics
 - intl
 - get_it
+- shared_preferences
+- uuid
 
 ## Galeria de Imagens do projeto
 

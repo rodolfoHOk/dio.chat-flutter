@@ -9,6 +9,7 @@ import 'package:chat_flutter/services/chat_service.dart';
 import 'package:chat_flutter/services/impl/firebase_chat_service.dart';
 import 'package:chat_flutter/services/impl/firebase_message_service.dart';
 import 'package:chat_flutter/services/message_service.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 final getIt = GetIt.instance;
 
@@ -32,4 +33,6 @@ void _setup() {
       FirebaseChatService(getIt.get<FirebaseFirestore>()));
   getIt.registerSingleton<MessageService>(
       FirebaseMessageService(getIt.get<FirebaseFirestore>()));
+  getIt.registerSingletonAsync<SharedPreferences>(
+      () async => await SharedPreferences.getInstance());
 }

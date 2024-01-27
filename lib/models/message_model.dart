@@ -1,5 +1,7 @@
 // ignore_for_file: unnecessary_getters_setters
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class MessageModel {
   String? _id;
   String _chatId = "";
@@ -38,7 +40,7 @@ class MessageModel {
     _userId = json['userId'];
     _nickname = json['nickname'];
     _text = json['text'];
-    _createdAt = json['created_at'];
+    _createdAt = (json['created_at'] as Timestamp).toDate();
   }
 
   Map<String, dynamic> toJson() {
@@ -47,7 +49,7 @@ class MessageModel {
     data['userId'] = _userId;
     data['nickname'] = _nickname;
     data['text'] = _text;
-    data['created_at'] = _createdAt;
+    data['created_at'] = Timestamp.fromDate(_createdAt);
     return data;
   }
 }
