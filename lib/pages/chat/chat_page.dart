@@ -1,9 +1,14 @@
+import 'package:chat_flutter/main.dart';
 import 'package:chat_flutter/models/chat_model.dart';
 import 'package:chat_flutter/models/message_model.dart';
+import 'package:chat_flutter/services/impl/firebase_message_service.dart';
+import 'package:chat_flutter/services/message_service.dart';
 import 'package:chat_flutter/shared/widgets/chat_form.dart';
 import 'package:chat_flutter/shared/widgets/chat_message.dart';
-import 'package:chat_flutter/shared/widgets/day_separator.dart';
+import 'package:chat_flutter/shared/widgets/chat_message_with_day.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ChatPage extends StatefulWidget {
   final ChatModel chatModel;
@@ -16,9 +21,24 @@ class ChatPage extends StatefulWidget {
 }
 
 class _ChatPageState extends State<ChatPage> {
+  late FirebaseMessageService messageService;
+
+  @override
+  void initState() {
+    loadMessages();
+    super.initState();
+  }
+
+  Future<void> loadMessages() async {
+    messageService = getIt.get<MessageService>() as FirebaseMessageService;
+  }
+
   @override
   Widget build(BuildContext context) {
     var chat = widget.chatModel;
+    var nick = widget.nickname;
+    var preferences = getIt.get<SharedPreferences>();
+    var userId = preferences.getString("chat_app:user_id");
 
     return SafeArea(
       child: Scaffold(
@@ -31,35 +51,34 @@ class _ChatPageState extends State<ChatPage> {
           child: Column(
             children: [
               Expanded(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    ChatMessage(
-                      messageModel: MessageModel(
-                        chatId: "abc123",
-                        userId: "123456",
-                        nickname: "Nickname 1",
-                        text: "Message 1 Test",
-                      ),
-                      isMe: false,
-                    ),
-                    DaySeparator(
-                      date: DateTime.tryParse("2024-01-23T09:30:00") ??
-                          DateTime.now(),
-                    ),
-                    ChatMessage(
-                      messageModel: MessageModel(
-                        chatId: "abc123",
-                        userId: "567890",
-                        nickname: "Nickname 2",
-                        text: "Message 2 Test",
-                      ),
-                      isMe: true,
-                    ),
-                  ],
+                child: StreamBuilder<List<MessageModel>>(
+                  stream: messageService.streamMessagesByChatId(chat.id!),
+                  builder: (context, snapshot) {
+                    var lastDate = "";
+                    return ListView(
+                      children: snapshot.hasData
+                          ? snapshot.data!.map((message) {
+                              bool isMe = message.userId == userId;
+                              var formattedDate = DateFormat.yMMMMd("pt-BR")
+                                  .format(message.createdAt);
+                              if (formattedDate == lastDate) {
+                                return ChatMessage(
+                                    messageModel: message, isMe: isMe);
+                              } else {
+                                lastDate = formattedDate;
+                                return ChatMessageWithDay(
+                                    messageModel: message, isMe: isMe);
+                              }
+                            }).toList()
+                          : [],
+                    );
+                  },
                 ),
               ),
-              const ChatForm(),
+              ChatForm(
+                chatId: chat.id!,
+                nickname: nick,
+              ),
             ],
           ),
         ),
